@@ -1,0 +1,249 @@
+Jesse Sidhu and Josiah Goosen's Automated Test Cases 
+ 
+################################### 
+----------------------------------- 
+Running Correct Test Cases 
+----------------------------------- 
+################################### 
+ 
+----------------------------------- 
+Testing Assignment Statement 
+----------------------------------- 
+ 
+Testing Assignment Statement 
+
+- AProg
+     `- AMainmethod
+        |- main
+        |- (
+        |- AMultipleStmts
+        |  |- ADeclStmt
+        |  |  `- ADeclarestmt
+        |  |     |- int
+        |  |     |- x
+        |  |     `- ;
+        |  `- AMultipleStmts
+        |     |- AAssignStmt
+        |     |  `- AAssignstmt
+        |     |     |- x
+        |     |     |- =
+        |     |     |- APassExpr
+        |     |     |  `- APassExpr2
+        |     |     |     `- AYesUniary
+        |     |     |        `- AOperPriority
+        |     |     |           `- AIntOperand
+        |     |     |              `- 5
+        |     |     `- ;
+        |     `- AMultipleStmts
+        |        |- AFcStmt
+        |        |  `- AFunctioncall
+        |        |     |- PrintInt
+        |        |     |- (
+        |        |     |- AMultipleArguments
+        |        |     |  |- AArgument
+        |        |     |  |  `- APassExpr
+        |        |     |  |     `- APassExpr2
+        |        |     |  |        `- AYesUniary
+        |        |     |  |           `- AOperPriority
+        |        |     |  |              `- AIntOperand
+        |        |     |  |                 `- 2001
+        |        |     |  `- ,
+        |        |     |  `- ANoneArguments
+        |        |     |- )
+        |        |     `- ;
+        |        `- AMultipleStmts
+        |           |- AFcStmt
+        |           |  `- AFunctioncall
+        |           |     |- NewLine
+        |           |     `- (
+        |           |     |- ANoneArguments
+        |           |     |- )
+        |           |     `- ;
+        |           `- AMultipleStmts
+        |              |- AFcStmt
+        |              |  `- AFunctioncall
+        |              |     |- Print
+        |              |     |- (
+        |              |     |- AMultipleArguments
+        |              |     |  |- AArgument
+        |              |     |  |  `- APassExpr
+        |              |     |  |     `- APassExpr2
+        |              |     |  |        `- AYesUniary
+        |              |     |  |           `- AOperPriority
+        |              |     |  |              `- AStringOperand
+        |              |     |  |                 `- "helloworld"
+        |              |     |  `- ,
+        |              |     |  `- ANoneArguments
+        |              |     |- )
+        |              |     `- ;
+        |              `- AMultipleStmts
+        |                 |- AFcStmt
+        |                 |  `- AFunctioncall
+        |                 |     |- NewLine
+        |                 |     `- (
+        |                 |     |- ANoneArguments
+        |                 |     |- )
+        |                 |     `- ;
+        |                 `- AMultipleStmts
+        |                    |- AFcStmt
+        |                    |  `- AFunctioncall
+        |                    |     |- PrintInt
+        |                    |     |- (
+        |                    |     |- AMultipleArguments
+        |                    |     |  |- AArgument
+        |                    |     |  |  `- APassExpr
+        |                    |     |  |     `- APassExpr2
+        |                    |     |  |        `- AYesUniary
+        |                    |     |  |           `- AOperPriority
+        |                    |     |  |              `- AVariableOperand
+        |                    |     |  |                 `- x
+        |                    |     |  `- ,
+        |                    |     |  `- ANoneArguments
+        |                    |     |- )
+        |                    |     `- ;
+        |                    `- AMultipleStmts
+        |                       |- AAssignStmt
+        |                       |  `- AAssignstmt
+        |                       |     |- x
+        |                       |     |- =
+        |                       |     |- APlusExpr
+        |                       |     |  |- APassExpr
+        |                       |     |  |  `- APassExpr2
+        |                       |     |  |     `- AYesUniary
+        |                       |     |  |        `- AOperPriority
+        |                       |     |  |           `- AVariableOperand
+        |                       |     |  |              `- x
+        |                       |     |  |- +
+        |                       |     |  `- APassExpr2
+        |                       |     |     `- AYesUniary
+        |                       |     |        `- AOperPriority
+        |                       |     |           `- AIntOperand
+        |                       |     |              `- 5
+        |                       |     `- ;
+        |                       `- AMultipleStmts
+        |                          |- AAssignStmt
+        |                          |  `- AAssignstmt
+        |                          |     |- x
+        |                          |     |- =
+        |                          |     |- APassExpr
+        |                          |     |  `- AMultExpr2
+        |                          |     |     |- APassExpr2
+        |                          |     |     |  `- AYesUniary
+        |                          |     |     |     `- AOperPriority
+        |                          |     |     |        `- AIntOperand
+        |                          |     |     |           `- 5
+        |                          |     |     |- *
+        |                          |     |     `- AIntOperand
+        |                          |     |        `- 6
+        |                          |     `- ;
+        |                          `- AMultipleStmts
+        |                             |- AFcStmt
+        |                             |  `- AFunctioncall
+        |                             |     |- NewLine
+        |                             |     `- (
+        |                             |     |- ANoneArguments
+        |                             |     |- )
+        |                             |     `- ;
+        |                             `- AMultipleStmts
+        |                                |- AFcStmt
+        |                                |  `- AFunctioncall
+        |                                |     |- PrintInt
+        |                                |     |- (
+        |                                |     |- AMultipleArguments
+        |                                |     |  |- AArgument
+        |                                |     |  |  `- APassExpr
+        |                                |     |  |     `- APassExpr2
+        |                                |     |  |        `- AYesUniary
+        |                                |     |  |           `- AOperPriority
+        |                                |     |  |              `- AVariableOperand
+        |                                |     |  |                 `- x
+        |                                |     |  `- ,
+        |                                |     |  `- ANoneArguments
+        |                                |     |- )
+        |                                |     `- ;
+        |                                `- AMultipleStmts
+        |                                   |- AFcStmt
+        |                                   |  `- AFunctioncall
+        |                                   |     |- NewLine
+        |                                   |     `- (
+        |                                   |     |- ANoneArguments
+        |                                   |     |- )
+        |                                   |     `- ;
+        |                                   `- AMultipleStmts
+        |                                      |- ADeclStmt
+        |                                      |  `- ADeclarestmt
+        |                                      |     |- float
+        |                                      |     |- y
+        |                                      |     `- ;
+        |                                      `- AMultipleStmts
+        |                                         |- AAssignStmt
+        |                                         |  `- AAssignstmt
+        |                                         |     |- y
+        |                                         |     |- =
+        |                                         |     |- APassExpr
+        |                                         |     |  `- APassExpr2
+        |                                         |     |     `- AYesUniary
+        |                                         |     |        `- AOperPriority
+        |                                         |     |           `- AFloatOperand
+        |                                         |     |              `- 6.0
+        |                                         |     `- ;
+        |                                         `- AMultipleStmts
+        |                                            |- AFcStmt
+        |                                            |  `- AFunctioncall
+        |                                            |     |- PrintFloat
+        |                                            |     |- (
+        |                                            |     |- AMultipleArguments
+        |                                            |     |  |- AArgument
+        |                                            |     |  |  `- APassExpr
+        |                                            |     |  |     `- APassExpr2
+        |                                            |     |  |        `- AYesUniary
+        |                                            |     |  |           `- AOperPriority
+        |                                            |     |  |              `- AVariableOperand
+        |                                            |     |  |                 `- y
+        |                                            |     |  `- ,
+        |                                            |     |  `- ANoneArguments
+        |                                            |     |- )
+        |                                            |     `- ;
+        |                                            `- AMultipleStmts
+        |                                               |- ADeclStmt
+        |                                               |  `- ADeclarestmt
+        |                                               |     |- string
+        |                                               |     |- s
+        |                                               |     `- ;
+        |                                               `- AMultipleStmts
+        |                                                  |- AAssignStmt
+        |                                                  |  `- AAssignstmt
+        |                                                  |     |- s
+        |                                                  |     |- =
+        |                                                  |     |- APassExpr
+        |                                                  |     |  `- APassExpr2
+        |                                                  |     |     `- AYesUniary
+        |                                                  |     |        `- AOperPriority
+        |                                                  |     |           `- AStringOperand
+        |                                                  |     |              `- "Help me"
+        |                                                  |     `- ;
+        |                                                  `- AMultipleStmts
+        |                                                     |- AFcStmt
+        |                                                     |  `- AFunctioncall
+        |                                                     |     |- NewLine
+        |                                                     |     `- (
+        |                                                     |     |- ANoneArguments
+        |                                                     |     |- )
+        |                                                     |     `- ;
+        |                                                     `- ASingleStmts
+        |                                                        `- AFcStmt
+        |                                                           `- AFunctioncall
+        |                                                              |- Print
+        |                                                              |- (
+        |                                                              |- ASingleArguments
+        |                                                              |  `- AArgument
+        |                                                              |     `- APassExpr
+        |                                                              |        `- APassExpr2
+        |                                                              |           `- AYesUniary
+        |                                                              |              `- AOperPriority
+        |                                                              |                 `- AVariableOperand
+        |                                                              |                    `- s
+        |                                                              |- )
+        |                                                              `- ;
+        `- )
+

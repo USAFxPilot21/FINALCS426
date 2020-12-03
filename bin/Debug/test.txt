@@ -1,0 +1,6 @@
+//int x;
+x := 5 + 5;
+Print("xIsLoadedWith",);
+PrintInt(x + 6,);
+NewLine();
+Print("yIsLoadedWith",);

@@ -1,0 +1,15 @@
+functioncall(){
+	print("Hello World");
+}
+
+main(
+int x;
+int y;
+x = 14;
+y = 25;
+
+PrintInt(x,);
+
+functioncall();
+
+)

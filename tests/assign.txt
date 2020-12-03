@@ -1,0 +1,27 @@
+main( 
+
+int x;
+x = 5;
+
+PrintInt(2001,);
+NewLine();
+Print("helloworld",);
+NewLine();
+PrintInt(x,);
+x = x + 5;
+
+x = 5 * 6;
+NewLine();
+PrintInt(x,);
+NewLine();
+float y;
+y = 6.0;
+PrintFloat(y,);
+
+string s;
+s = "Help me";
+NewLine();
+Print(s);
+
+
+)

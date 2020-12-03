@@ -1,0 +1,14 @@
+function1(){
+	Print("Hello World");
+}
+
+function2(){
+	Print("Hello World");
+}
+
+
+main(
+
+function1();
+
+)
