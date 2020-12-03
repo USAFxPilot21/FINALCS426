@@ -1,0 +1,116 @@
+// this is StableCC code
+// this language only does addition and multiplication
+Package CS426;
+
+Helpers //not regular expressions, sets of things we want to be treated the same
+	whitespaces = ' ' | 9 | 10 | 13; // 9 ascii code for tab, 10 ascii code for newline
+	whole = ['1'..'9'];
+	natural = ['0' + whole]; // plus operator combines sets
+	letter = [['a'..'z'] + ['A'..'Z']];
+	
+// Lexer Portion
+Tokens
+	// Operators and EOL
+	plus = '+';
+	mult = '*';
+	assign = '=';
+	eol = ';';
+	divide = '/';
+	subtract = '-';
+	lparen = '(';
+	rparen = ')';
+	lb = '{';
+	rb = '}';
+	lt = '<';
+	gt = '>';
+	lte = '<=';
+	gte = '>=';
+	and = '&&';
+	or = '||';
+	not = '~';
+	equals = '==';
+	comma = ',';
+	period = '.';
+
+
+	// Program Control
+	if = 'if';
+	else = 'else';
+	while = 'while';
+	main = 'main';
+	return = 'return';
+	constant = 'const';
+	
+	// Identifiers
+	id = '_'? letter(letter | natural | '_' (letter | natural))* '_'?;
+	comment = '//'([[0..0xffff] - [10 + 13]])*; //allows for any character in comment, ends with newline
+	
+	
+	
+	// Literals
+	integer = '0' | whole (natural)*;
+	float = ('0' | whole (natural)*) '.' ('0' | whole (natural)* ('e' '-'? whole (natural)*) | whole (natural)*);
+	string = '"' ([[0..0xffff] - ['\' + '"']] | '\"' | '\\')* '"';
+	
+	// Whitespace
+	blank = whitespaces+;
+	
+	
+Ignored Tokens // tokens that the parser will ignore
+	blank, comment;
+// Parser Portion
+Productions	
+	prog = constant_declarations* function_declarations* mainmethod;
+	mainmethod = main lparen stmts? rparen;
+	
+	constant_declarations = constant [typename]:id [varname]:id assign constdec eol;
+	constdec = {expression} expr;
+	function_declarations = [varname]:id lparen parameters rparen lb stmts? rb;
+ 
+	stmts = {multiple} stmt stmts | {single} stmt;
+	stmt = {assign} assignstmt | {decl} declarestmt | {fc} functioncall | {while} logicwhile | {ifelse}logicif;
+	
+	//assignment code -> x = 10;
+	assignstmt = id assign expr eol;
+	
+	//declaration code -> int x;
+	declarestmt = [typename]:id [varname]:id eol;
+	
+	//function call code -> print("hello");
+	functioncall = id lparen arguments rparen eol;
+ 
+	//logic code so either while, if, or else
+	logicwhile = while lparen boolexp rparen lb stmts? rb;
+	logicif = if lparen boolexp rparen lb stmts? rb logicelse?;
+	logicelse = else lb stmts? rb;
+	logiccomp = {equals} equals | {lt} lt | {lte} lte | {gt} gt | {gte} gte;
+
+	
+	
+	boolexp = {multiple} [first]: compexpr booltools [second]: compexpr | {single} compexpr;
+	booltools = {and} and | {or} or;
+
+
+	//arithmetic code -> x + y | x * y etc
+	//arithmeticstmt = [first]: operand operator [second]: operand operation?;
+	//operation = operand operator;
+	
+	
+	parameters = {single} parameter | {multiple} parameter comma parameters | {none};
+	parameter = {parameter} [typename]: id [varname]: id;
+	
+	arguments = {single} argument | {multiple} argument comma arguments | {none} ;
+	argument = expr;
+
+
+	orexpr  = {or} orexpr or andexpr | {pass} andexpr;
+	andexpr = {and} andexpr and compexpr | {pass} compexpr;
+	compexpr = {lessthan} [lhs]: expr lt [rhs]: expr | {lessthane} [lhs]: expr lte [rhs]: expr | 
+	{greatthan} [lhs]: expr gt [rhs]: expr | {greatthane} [lhs]: expr gte [rhs]: expr |
+	{equal} [lhs]: expr equals [rhs]: expr | {pass} expr;
+	
+	expr = {plus} expr plus expr2 |  {subtract} expr subtract expr2 | {pass} expr2;
+	expr2 = {mult} expr2 mult operand | {divide} expr2 divide operand | {pass} uniary;
+	uniary = {neg} subtract priority |  {not} not priority | {yes} priority;
+	priority = {parens} lparen orexpr rparen | {oper} operand;
+	operand = {int} integer | {variable} id | {float} float | {string} string;

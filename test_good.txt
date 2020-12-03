@@ -1,0 +1,20 @@
+int x;
+int y;
+int z;
+int w;
+
+x := 7;
+y := 8;
+z := 3;
+w := 7 + 5;
+w := x + y * z;
+
+Print("ExpectedOutputIs",);
+NewLine();
+PrintInt(w,);
+NewLine();
+Print("OutputtingAFloat",);
+NewLine();
+NewLine();
+Print("EndOfTest",);
+NewLine();
